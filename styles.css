@@ -1,0 +1,121 @@
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    text-align: center;
+    font-family: "Bubblegum",sans-serif;
+}
+
+
+p{
+  
+  display: inline-block;     
+  right: 300px;
+  top: 250px; 
+  position:absolute;
+}
+
+.map-responsive{
+  overflow:hidden;
+  padding-bottom:50%;
+  position:relative;
+  height:0;
+}
+.map-responsive iframe{
+  left: 20px;
+  top: 20px;
+  height:45%;
+  width:45%;
+  position:absolute;
+}
+
+
+#map-diagram{
+  display: inline-block;     
+  right: 100px;
+  top: 450px; 
+ 
+  position:absolute;
+}
+#treasure
+{
+  left: 25px;
+  top: 450px;
+  position:absolute;
+}
+
+#pirate{
+  right: 20px;
+  top: 75px;
+  position:absolute;
+}
+
+   #Pirate1 #telescope-of-pirate1{
+    animation: tel 10s ease;
+    transform-origin:80%;
+    transform-box: fill-box;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+    @keyframes tel 
+    {
+        from {
+           transform:rotateZ(20deg)
+          }
+        
+          to {
+            transform: rotateZ(-30deg)
+          }
+    }  
+   
+  
+    #Chest #flag{
+      animation: waver 10s ease;
+      transform-origin:80%;
+      transform-box: fill-box;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+     
+  }
+
+    @keyframes waver {
+      0% {
+        
+        transform: rotate(-5deg);
+      }
+      100% {
+       
+        transform: rotate(5deg);
+      }
+      
+    }   
+  
+    #Map1{
+      animation: wave 10s ease;
+      transform-origin:50%;
+      transform-box: fill-box;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      
+     
+  }
+
+    @keyframes wave {
+      0% {
+        
+        transform: rotate(-7deg);
+      }
+      100% {
+       
+        transform: rotate(7deg);
+      }
+      
+    }   
