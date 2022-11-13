@@ -4,6 +4,7 @@ import React from 'react';
 import TreasureSVG from './TreasureSVG';
 import MapDiagram from './MapDiagramSVG';
 import PirateSVG from './PirateSVG';
+import GoogleMaps from './GoogleMaps';
 
 function App() {
   const render = (status: Status) => {
@@ -56,8 +57,9 @@ function App() {
       <div className="container-fluid">
         <div className="map-responsive">
           <Wrapper apiKey={'AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc'} render={render}>
+            <GoogleMaps/>
           </Wrapper>
-      <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" title="random" width="600" height="450" frameborder="0" style={{border: 0}} allowfullscreen></iframe>
+      {/* <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" title="random" width="600" height="450" frameborder="0" style={{border: 0}} allowfullscreen></iframe> */}
       </div>
       </div>
       <p>Want to treasure every place you visit on your adventures?<br/>Now you can!</p>
