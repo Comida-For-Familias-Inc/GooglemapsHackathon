@@ -1,12 +1,53 @@
 import './App.css';
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import React from 'react';
 
 function App() {
+  const render = (status: Status) => {
+    return <h1>{status}</h1>;
+  };
+
+  const Map: React.FC<{}> = () => {};
+
+  const ref = React.useRef(null);
+  const [map, setMap] = React.useState();
+
+  React.useEffect(() =>{
+    if (ref.current && !map){
+      setMap(window.google)
+    }
+  }, [ref,map]);
+
+  // mapMarkers => () => {
+  //   const initialMarker ={lat:12.97, lng:77.59};
+  //   const map = new google.maps.Map(
+  //     document.getElementById("map") as HTMLElement,
+  //     {
+  //       zoom: 12,
+  //       center: bangalore,
+  //     }
+  //   );
+
+  //   google.maps.event.addListener(map, "click", (event) => {
+  //     addMarker(event.latLng, map)
+  //   });
+
+  //   addMarker(bangalore, map);
+  // }
+
+  // function addMarker(location: google.maps.latLngLiteral, map: google.maps.Map){
+  //   //adds the marker at the clicked location, and the next-available lable
+  //   new google.maps.Marker({
+  //     position: location,
+  //     label: labels[labelIndex++ % labels.length],
+  //     maps: map,
+  //   })
+  // }
+
   return (
     <div className="App">
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
-          
 
       <nav className="navbar navbar-dark bg-dark">
         <div className="container col-xs-4">
@@ -15,17 +56,19 @@ function App() {
             <input className="form-control me-2" type="search" placeholder="Search for a city" aria-label="Search"/>
             <button className="btn btn-outline-success" type="submit">Search</button>
           </form>
-
-        
         </div>
       </nav>
 
 
       <div className="container-fluid">
         <div className="map-responsive">
+          <Wrapper apiKey={'AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc'} render={render}>
+            <YourComponent></YourComponent>
+          </Wrapper>
+          <div ref={ref} />
       <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" title="random" width="600" height="450" frameborder="0" style={{border: 0}} allowfullscreen></iframe>
       </div>
-      </div> 
+      </div>
       <p>Want to treasure every place you visit on your adventures?<br/>Now you can!</p>
 
       <div id="pirate">
