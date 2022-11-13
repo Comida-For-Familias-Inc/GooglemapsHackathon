@@ -4,12 +4,27 @@ import React from 'react';
 import TreasureSVG from './TreasureSVG';
 import MapDiagram from './MapDiagramSVG';
 import PirateSVG from './PirateSVG';
-import GoogleMaps from './GoogleMaps';
+import GoogleMaps from './GoogleMaps.tsx';
 
 function App() {
-  const render = (status: Status) => {
-    return <h1>{status}</h1>;
+  const center = { lat: -34.397, lng: 150.644 };
+  const zoom = 20;
+
+  const render = (status) => {
+    console.log(status)
+    {switch (status){
+      case Status.LOADING:
+        // return <Spinner/>
+        return <h1>LOADING</h1>
+      case Status.FAILURE:
+        // return <ErrorComponent/>
+        return <h1>ERROR</h1>
+      case Status.SUCCESS:
+        return <h1>SUCCESS</h1>
+        // return <GoogleMaps/>
+    }};
   };
+
 
 
   // mapMarkers => () => {
@@ -41,7 +56,7 @@ function App() {
   return (
     <div className="App">
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossOrigin="anonymous"></script>
 
       <nav className="navbar navbar-dark bg-dark">
         <div className="container col-xs-4">
@@ -56,8 +71,9 @@ function App() {
 
       <div className="container-fluid">
         <div className="map-responsive">
-          <Wrapper apiKey={'AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc'} render={render}>
-            <GoogleMaps/>
+          <Wrapper apiKey='AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc' render={render}>
+            <GoogleMaps center={center} zoom={zoom} />
+            Yoooooo
           </Wrapper>
       {/* <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" title="random" width="600" height="450" frameborder="0" style={{border: 0}} allowfullscreen></iframe> */}
       </div>
