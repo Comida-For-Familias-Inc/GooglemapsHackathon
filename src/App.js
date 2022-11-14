@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import TreasureSVG from "./TreasureSVG";
 import MapDiagram from "./MapDiagramSVG";
 import PirateSVG from "./PirateSVG";
-import {GoogleMaps, Marker} from "./GoogleMaps.js";
+import { GoogleMaps, Marker} from "./GoogleMaps.js";
 
 function App() {
   const [clicks, setClicks] = useState([]);
